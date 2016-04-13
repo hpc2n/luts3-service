@@ -55,7 +55,9 @@ class InsertChecker:
                 continue
 
             # check if x509 identity is close enough to machine name to allow insertion
-            ic_parts = [ p for p in ic.split('.') if p != '' ]
+            ic_parts = []
+            if ic:
+                ic_parts = [ p for p in ic.split('.') if p != '' ]
             if len(ic_parts) < cd:
                 allowed.append(False)
                 continue
