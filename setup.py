@@ -60,7 +60,7 @@ setup(name='sgas-luts-service',
                 'sgas/queryengine', 'sgas/server', 'sgas/usagerecord', 
                 'sgas/storagerecord', 'sgas/viewengine', 'sgas/generic',
                 'sgas/hostscalefactors','sgas/customqueryengine',
-                'sams'
+                'sams','sams/cloudrecords'
                 ],
 
       cmdclass = cmdclasses,
