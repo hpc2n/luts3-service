@@ -142,7 +142,7 @@ def xmlToDict(cl_doc, insert_identity=None, insert_hostname=None, insert_time=No
                 r['iops'] = parseInt(element.text)
 
         else:
-            log.msg("Unhandled storage record element: %s" % element.tag, system='sgas.StorageRecord')
+            log.msg("Unhandled storage record element: %s" % element.tag, system='sgas.CloudRecord')
 
     return r
 

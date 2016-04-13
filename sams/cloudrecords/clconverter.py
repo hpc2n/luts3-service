@@ -45,7 +45,6 @@ def createInsertArguments(cloudrecord_docs, insert_identity=None, insert_hostnam
     args = []
 
     for sr_doc in cloudrecord_docs:
-        log.msg(sr_doc);
         arg = [ sr_doc.get(a, None) for a in ARG_LIST ]
         if sr_doc.get('record_type') == cl.CLOUD_COMPUTE_RECORD:
             args.append(['cr_create_compute_record'] + arg)

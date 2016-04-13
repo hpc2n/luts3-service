@@ -73,7 +73,4 @@ class CloudUsageRecordInsertResource(GenericInsertResource):
         
         arg_list = clconverter.createInsertArguments(cloudrecord_docs)
 
-        for x in arg_list:
-            log.msg(x)
-
         return db.recordInserter('cloud usage', 'cr_create_record', arg_list)
