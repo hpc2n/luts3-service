@@ -53,7 +53,7 @@ class NodeAvailabilityRecordInsertResource(GenericInsertResource):
 
         ar_docs = []
 
-        for ar_element in arsplitter.splitCLDocument(node_availability_record_data):
+        for ar_element in arsplitter.splitARDocument(node_availability_record_data):
             ar_doc = arparser.xmlToDict(ar_element,
                                     insert_identity=insert_identity,
                                     insert_hostname=insert_hostname,
@@ -61,7 +61,7 @@ class NodeAvailabilityRecordInsertResource(GenericInsertResource):
             ar_docs.append(ar_doc)
 
         machine_names = set( [ doc.get('machine_name') for doc in ar_docs ] )
-        ctx = [ ('machine_name', ss) for ss in site ]
+        ctx = [ ('machine_name', ss) for ss in machine_names ]
 
         if authorizer.isAllowed(insert_identity, ACTION_NODE_AVAILABILITY_INSERT, ctx):
             return self.insertNodeAvailabilityRecords(db, ar_docs)

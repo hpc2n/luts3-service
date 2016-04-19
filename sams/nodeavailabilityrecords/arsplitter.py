@@ -20,7 +20,7 @@ class ParseError(Exception):
     """
 
 
-def splitCLDocument(ar_data):
+def splitARDocument(ar_data):
 
     node_availability_records = []
 
@@ -29,20 +29,20 @@ def splitCLDocument(ar_data):
     except Exception, e:
         raise ParseError("Error parsing node availability record data (%s)" % str(e))
 
-    if tree.tag == cl.NODE_AVAILABILITY_RECORDS:        
+    if tree.tag == ar.NODE_AVAILABILITY_RECORDS:        
         for ar_element in tree:
-            if ar_element.tag == cl.NODE_AVAILABILITY_RECORD:
+            if ar_element.tag == ar.NODE_AVAILABILITY_RECORDS:
                 for ar_element2 in ar_element:
-                    if not ar_element2.tag == cl.NODE_AVAILABILITY_RECORD:
+                    if not ar_element2.tag == ar.NODE_AVAILABILITY_RECORD:
                         raise ParseError("Subelement in NodeAvailabilityRecords doc not a NodeAvailabilityRecord: " + 
                                     ar_element2.tag)
                     node_availability_records.append(ar_element2)
             else:
-                if not ar_element.tag == cl.NODE_AVAILABILITY_RECORD:
+                if not ar_element.tag == ar.NODE_AVAILABILITY_RECORD:
                     raise ParseError("Subelement in NodeAvailabilityRecords doc not a NodeAvailabilityRecord: " + ar_element.tag)
                 node_availability_records.append(ar_element)
 
-    elif tree.tag == cl.NODE_AVAILABILITY_RECORD:
+    elif tree.tag == ar.NODE_AVAILABILITY_RECORD:
         node_availability_records.append(tree)
 
     else:

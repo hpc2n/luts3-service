@@ -31,6 +31,7 @@ def createInsertArguments(node_availabiliyrecord_docs, insert_identity=None, ins
 
     for ar_doc in node_availabiliyrecord_docs:
         arg = [ ar_doc.get(a, None) for a in ARG_LIST ]
+        args.append(arg)
 
     return args
 

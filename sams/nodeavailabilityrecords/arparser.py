@@ -12,7 +12,7 @@ import time
 from twisted.python import log
 
 from sgas.ext import isodate
-from sams.nodeavailabilityrecords import arelements as r
+from sams.nodeavailabilityrecords import arelements as ar
 
 # date constants
 ISO_TIME_FORMAT   = "%Y-%m-%dT%H:%M:%SZ" # if we want to convert back some time
@@ -107,7 +107,7 @@ def xmlToDict(ar_doc, insert_identity=None, insert_hostname=None, insert_time=No
         elif element.tag == ar.AVAILABLE:       r['available'] = parseInt(element.text)
         elif element.tag == ar.UNAVAILABLE:     r['unavailable'] = parseInt(element.text)
         elif element.tag == ar.RESERVED:        r['reserved'] = parseInt(element.text)
-        elif element.tag == ar.UNKNOWN:         r['unkown'] = parseInt(element.text)
+        elif element.tag == ar.UNKNOWN:         r['unknown'] = parseInt(element.text)
         else:
             log.msg("Unhandled node availability record element: %s" % element.tag, system='sgas.NodeAvilability')
 
