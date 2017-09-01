@@ -105,7 +105,7 @@ def xmlToDict(cl_doc, insert_identity=None, insert_hostname=None, insert_time=No
         elif element.tag == cl.INSTANCE_ID:     r['instance']  = element.text
         elif element.tag == cl.REGION:          r['region']  = element.text
         elif element.tag == cl.ZONE:            r['zone']  = element.text
-        elif element.tag == cl.COST:            r['cost']  = parseInt(element.text)
+        elif element.tag == cl.COST:            r['cost']  = parseFloat(element.text)
 
         elif element.tag == cl.START_TIME:      r['start_time']     = parseISODateTime(element.text)
         elif element.tag == cl.END_TIME:        r['end_time']       = parseISODateTime(element.text)
