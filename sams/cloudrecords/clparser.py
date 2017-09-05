@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Parser to convert cloud usage records in XML format into Python dictionaries,
 which are easier to work with.
@@ -99,6 +100,7 @@ def xmlToDict(cl_doc, insert_identity=None, insert_hostname=None, insert_time=No
             setIfNotNone('record_id',   element.get(cl.RECORD_ID))
             setIfNotNone('create_time', parseISODateTime(element.get(cl.CREATE_TIME)))
 
+        elif element.tag == cl.RESOURCE:        r['resource'] = element.text
         elif element.tag == cl.SITE:            r['site'] = element.text
         elif element.tag == cl.PROJECT:         r['project']  = element.text
         elif element.tag == cl.USER:            r['username']  = element.text

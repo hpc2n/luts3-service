@@ -13,6 +13,7 @@ from sams.cloudrecords import clelements as cl
 ARG_LIST = [
     'record_id',
     'create_time',
+    'resource',
     'site',
     'project',
     'username',

@@ -21,6 +21,7 @@ RECORD_ID               = QName("{%s}recordId"              % CL_NAMESPACE)
 CREATE_TIME             = QName("{%s}createTime"            % CL_NAMESPACE)
 
 # storage system
+RESOURCE                = QName("{%s}Resource"              % CL_NAMESPACE)
 SITE                    = QName("{%s}Site"                  % CL_NAMESPACE)
 PROJECT                 = QName("{%s}Project"               % CL_NAMESPACE)
 USER                    = QName("{%s}User"                  % CL_NAMESPACE)

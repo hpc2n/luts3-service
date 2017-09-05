@@ -59,13 +59,13 @@ class CloudUsageRecordInsertResource(GenericInsertResource):
                                     insert_time=insert_time)
             cl_docs.append(cl_doc)
 
-        site = set( [ doc.get('site') for doc in cl_docs ] )
-        ctx = [ ('site', ss) for ss in site ]
+        resource = set( [ doc.get('resource') for doc in cl_docs ] )
+        ctx = [ ('resource', ss) for ss in resource ]
 
         if authorizer.isAllowed(insert_identity, ACTION_CLOUD_INSERT, ctx):
             return self.insertCloudUsageRecords(db, cl_docs)
         else:
-            MSG = 'Subject %s is not allowed to perform insertion for cloud systems: %s' % (insert_identity, ','.join(site))
+            MSG = 'Subject %s is not allowed to perform insertion for cloud systems: %s' % (insert_identity, ','.join(resource))
             return defer.fail(dberror.SecurityError(MSG))
         
         
